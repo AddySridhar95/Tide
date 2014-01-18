@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Tide</title>
+  <%= stylesheet_link_tag    "application", :media => "all" %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+
+<%= render "layouts/navbar" %>
+<div class = "container">
+
+		<% if flash.now[:notice] %>
+			<div class = "alert alert-success">
+				<button class="close" data-dismiss="alert">&times;</button>
+				<%= flash.now[:notice] %>
+			</div>
+		<% end %>
+		
+		<% if flash.now[:alert] %>
+			<div class = "alert alert-error">
+				<button class="close" data-dismiss="alert">&times;</button>
+				<%= flash.now[:alert] %>
+			</div>
+		<% end %>
+	<%= yield %>
+</div>
+</body>
+</html>

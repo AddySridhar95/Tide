@@ -1,0 +1,38 @@
+<div class = "row">	
+	<div class = "span8">
+		<div class = "hero-unit">
+			<h1>Welcome to Tide!</h1>
+			<p>
+				Tide is a facebook like social networking application built using the magical Ruby on Rails framework. Currently, this application will allow you to post statuses and view profile pages. It also has a secure authentication system which makes the process of signing in, signing out and signing up safe. 
+			</p>
+			<p>
+				Tide is created by a human being who goes by the name of Aditya Sridhar. This particular individual studies Software Engineering at the University of Waterloo and believes in the idea of "Learning by Doing". He has taken his first steps in the Ruby on Rails world by developing Tide. He is looking to add advanced features to this social networking site so stay tuned!. 
+			</p>
+			<div class="btn-group">
+			<%= link_to "Sign Up", new_user_registration_path, :class => "btn btn-success" %>
+		 	</div>
+		</div>
+	</div>
+
+	<div class = "span4">
+		<div class = "well">
+			<%= simple_form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
+			  <fieldset>
+			  	  <legend>Sign in</legend>
+				  <%= f.input :email %>
+				  
+				  <%= f.input :password %>
+				  
+				  <% if devise_mapping.rememberable? -%>
+				    <div><%= f.input :remember_me, as: :boolean %></div>
+				  <% end -%>
+			  
+			  <div><%= f.submit "Sign in", class: "btn btn-success" %></div>
+			  </fieldset>
+			<% end %>
+		</div>
+		<%= render "devise/shared/links" %>
+	</div>
+
+</div>
+
